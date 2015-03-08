@@ -14,7 +14,9 @@
 *  Description of the program
 *******************************************************
 
-This program simulates a travel agent selecting customers for a free world cruize.  The user selects how many contestants are in the pool.
+This program uses a circular doubly linked list by to do the following:
+
+Program simulates a travel agent selecting customers for a free world cruize.  The user selects how many contestants are in the pool.
 Then those numbers are dropped into a hat and randomly selected by the agent.
 
 The program then takes the number selected from the hat, and then starting at the begining of the list walks forward that many people and the person
