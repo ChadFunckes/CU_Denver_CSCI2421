@@ -1,0 +1,125 @@
+template<class T>
+int AVL<T>::Max(int a, int b){ // Max is a helper function for a height comparison in balance functions.
+	if (a > b) return a;
+	else return b;
+}
+template<class T>
+void AVL<T>::Copy(AVL<T>& lside, AVL<T>& rside){
+	CopyTree(rside, lside, lside.Root);
+		return;
+}
+template<class T>
+void AVL<T>::CopyTree(AVL<T>& lside, AVL<T>& rside, Node<T>* N) {
+	if (N == rside.EMPTY) return;
+	CopyTree(lside, rside, N->left);
+	lside.Insert(N->value);
+	CopyTree(lside, rside, N->right);
+}
+template<class T>
+void AVL<T>::Init(){ // Creates a new object and empty fill and comparison obj for the tree.
+	Root = EMPTY = new Node<T>;
+	EMPTY->h = 0;
+	EMPTY->left = EMPTY->right = NULL;
+}
+template<class T>
+Node<T>* AVL<T>::Search(Node<T>* N, T val){ // Searches for a value
+	if (N == EMPTY) return NULL;			// If the item is empty (ran out of valid places) there in nothing....
+	if (N->value == val) return N;			// If this is it...tada...
+	if (val < N->value)						// if the value is less, go left
+		return Search(N->left, val);
+	else									// Else, go right
+		return Search(N->right, val);
+}
+template<class T>
+Node<T>* AVL<T>::Insert(Node<T>* N, T val){
+	if (AllowDup == false) { // if the item is in the tree, then we don't want it
+		if (Search(val) != NULL) { 
+			cout << val << " Already Present, not entered\n";
+			return N;
+		}}
+
+	if (N == EMPTY) { // If the tree is empty, put this thing here.
+		N = new Node<T>;
+		N->value = val;
+		N->left = N->right = EMPTY; // set L and R legs to empties
+		N->h = 1;					// height is not 1
+		return N;
+	}
+
+	if (val <= N->value) N->left = Insert(N->left, val); // If the value is less, go left
+	else N->right = Insert(N->right, val);				// Else, go right.
+
+	return Balance(N);	// Balance the thang.
+}
+template<class T>
+Node<T>* AVL<T>::Delete(Node<T>* N, T val){
+	Node<T> *t;
+	if (N == EMPTY) return N;  // If the root is empty, nothing to do
+
+	if (N->value == val){ // If this is the item to be deleted then....
+		if (N->left == EMPTY || N->right == EMPTY){ // If one of the chilren is empty
+			if (N->left == EMPTY) t = N->right;		// if it is the left one go right
+			else t = N->left;						// if it's the right one go left
+			delete N;								// Delete the item
+			return t;								// return the leg was there
+		}
+		else {										// Else if no children are empty
+			for (t = N->right; t->left != EMPTY; t = t->left); // find the in order successor, right once, left till the bottom!
+			N->value = t->value;					// Set the value of the deleted item to the successor node value
+			N->right = Delete(N->right, t->value);  // Call delete on the node to the right, value that now duplicated (value of sucessor)
+			return Balance(N);						// Balance this mess.
+		}
+	}
+
+	if (val < N->value) N->left = Delete(N->left, val); // If the value is less than this node, go left to find it
+	else N->right = Delete(N->right, val);				// Else, go right to find it
+
+	return Balance(N);	
+}
+template<class T>
+void AVL<T>::GetHeight(Node<T>* N){
+	N->h = 1 + Max(N->left->h, N->right->h);
+}
+template<class T>
+Node<T>* AVL<T>::RotateLeft(Node<T>* N){
+	Node<T> *t = N->left;
+	N->left = t->right;
+	t->right = N;
+	GetHeight(N);
+	GetHeight(t);
+	return t;
+}
+template<class T>
+Node<T>* AVL<T>::RotateRight(Node<T>* N){
+	Node<T> *t = N->right;
+	N->right = t->left;
+	t->left = N;
+	GetHeight(N);
+	GetHeight(t);
+
+	return t;
+}
+template<class T>
+Node<T>* AVL<T>::Balance(Node<T>* N){
+	GetHeight(N);
+	if (N->left->h > N->right->h + 1){
+		if (N->left->right->h > N->left->left->h)
+			N->left = RotateRight(N->left);
+		N = RotateLeft(N);
+	}
+	else if (N->right->h > N->left->h + 1){
+			if (N->right->left->h > N->right->right->h)
+				N->right = RotateLeft(N->right);
+				N = RotateRight(N);
+			}
+
+	return N;
+}
+template<class T>
+void AVL<T>::DeallocMemory(Node<T>* N){
+	if (N == EMPTY) return; // no work to do
+	DeallocMemory(N->left); // go left until you hit an empty reference
+	DeallocMemory(N->right);// then check right until you hit an empty reference
+	delete N;				// delete this block
+
+}
