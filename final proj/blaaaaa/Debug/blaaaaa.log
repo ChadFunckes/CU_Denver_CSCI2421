@@ -1,16 +1,24 @@
-﻿Build started 5/12/2015 9:35:43 PM.
-     1>Project "C:\Users\Chad\Desktop\blaaaaa\blaaaaa\blaaaaa.vcxproj" on node 2 (Build target(s)).
+﻿Build started 6/22/2016 8:39:17 PM.
+     1>Project "C:\Users\Chad\git\csci2421\final proj\blaaaaa\blaaaaa.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt RoloAVL.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt functions.cpp main.cpp RoloAVL.cpp rolodex.cpp
+         rolodex.cpp
+     1>c:\users\chad\git\csci2421\final proj\blaaaaa\rolodex.cpp(196): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\chad\git\csci2421\final proj\blaaaaa\rolodex.cpp(198): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\chad\git\csci2421\final proj\blaaaaa\rolodex.cpp(267): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\chad\git\csci2421\final proj\blaaaaa\rolodex.cpp(269): warning C4018: '>' : signed/unsigned mismatch
          RoloAVL.cpp
+         main.cpp
+         functions.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Chad\Desktop\blaaaaa\Debug\blaaaaa.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Chad\Desktop\blaaaaa\Debug\blaaaaa.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Chad\Desktop\blaaaaa\Debug\blaaaaa.lib" /MACHINE:X86 Debug\functions.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Chad\git\csci2421\final proj\Debug\blaaaaa.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Chad\git\csci2421\final proj\Debug\blaaaaa.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Chad\git\csci2421\final proj\Debug\blaaaaa.lib" /MACHINE:X86 Debug\functions.obj
          Debug\main.obj
          Debug\RoloAVL.obj
          Debug\rolodex.obj
-         blaaaaa.vcxproj -> C:\Users\Chad\Desktop\blaaaaa\Debug\blaaaaa.exe
-     1>Done Building Project "C:\Users\Chad\Desktop\blaaaaa\blaaaaa\blaaaaa.vcxproj" (Build target(s)).
+         blaaaaa.vcxproj -> C:\Users\Chad\git\csci2421\final proj\Debug\blaaaaa.exe
+     1>Done Building Project "C:\Users\Chad\git\csci2421\final proj\blaaaaa\blaaaaa.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.25
+Time Elapsed 00:00:04.28
