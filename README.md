@@ -1,6 +1,7 @@
 # CU_Denver_CSCI2421
 
 This directory is my reposity for my homework assignments in CSCI 2421 (data structures and program design)
+All Programs in the this folder are done in C++
 
 Homework 1 - 
 The program takes a number from the user and generates a random
@@ -53,3 +54,32 @@ walks forward that many people.  The person they end up at is eliminated from th
 then turns around and walks back the other direction the same number of people and then that person
 is eliminated.  This process is continued until only 1 person is left in the game and that person
 is the winner of the competition.
+
+Homework 7 -
+This program uses STL classes to create a gift list for a holiday.  It takes input from a file with the gift in quotes preceded by
+name.  EX: Tom "books" seperated by line breaks either specififed at run time or from the program menu.  It then allows the user
+to add and remove gifts from a person and to add and remove people from the list, with the caveat that names can not be duplicated
+and gifts cannot be duplicated within a names list.
+
+Homework 8 -
+This program simulates 5 lines at a grocery store.  Each machine takes a random number of time
+to operate, between 10 and 600 seconds.  A new customer comes into the line 25% probability every second.
+The program keeps track of the average wait time and how many customers go through each line.
+
+Homework 9 -
+This program takes a number from 0-100 (0 cents to 1 dollar) from the user and tells you the
+total number of ways you can make change in quarter, dimes, nickels and pennies.
+it uses a recursive function to get the minium number of coins needed to make change
+and also used a 2d vector of vector<int> to map all of the coin combinations and 
+output them to the screen.
+
+Calculator_stack_usage - 
+This is a simple program that uses stacks to solve an algebraic expression entered by the user.
+
+hashproj - 
+This is a spell checking program using a dictionary file loaded into a hashmap.  It allows the user to specify a file name to check against the words in the dictionary and then produces a list of all the mispelled words.
+
+finalproj - 
+This program is a rolodex style program where a user enters all of a persons information including their acquaintances and their basic info.  It takes input from the file input.dat (dummy data) and then allows the user to add / delete / modify people etc.  It allows them to change what data is displayed in the listing of the people search.  You can search based on any field in whole or in parts and get a new list of people who match that criteria, you can search for an affiliate data and get their owner.  each search list recived back is then able to refined by further criteria...for example find all last names with the letter R in them....get list 1...now from that list pick people with first name john...etc...
+
+The purpose of the program is to use custom made binary search trees to load in and search the data.
